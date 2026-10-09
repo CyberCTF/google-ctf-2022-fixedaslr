@@ -4,12 +4,5 @@
   "question": "Retrieve the flag from the challenge service.",
   "category": "PWN",
   "difficulty": 4,
-  "evidence_kind": "SECRET",
-  "capabilities": [
-    "aslr-bypass",
-    "stack-canary",
-    "prng",
-    "binary-exploitation",
-    "rop"
-  ]
+  "evidence_kind": "SECRET"
 }
