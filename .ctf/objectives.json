@@ -1,0 +1,72 @@
+{
+  "objectives": [
+    {
+      "key": "main",
+      "title": "Read the flag",
+      "prompt": "Defeat the custom loader's randomisation, get code execution and read the flag.",
+      "check": {
+        "evidence": "SECRET",
+        "format": "CTF{%s}"
+      },
+      "dev": "CTF{dev-google-ctf-2022-fixedaslr}",
+      "hints": [
+        "Every address and the stack cookie come from the same home-made generator.",
+        "The scoreboard can read memory relative to its own buffer: collect enough addresses to recover the generator's state."
+      ],
+      "steps": [
+        {
+          "key": "mitigation",
+          "title": "Name what the loader re-implements",
+          "prompt": "Which exploit mitigation does the custom loader re-implement? (acronym)",
+          "check": {
+            "answer": [
+              "aslr",
+              "address space layout randomization",
+              "address space layout randomisation"
+            ]
+          }
+        },
+        {
+          "key": "prng",
+          "title": "Identify the generator",
+          "prompt": "Which kind of pseudo-random generator drives it? (acronym)",
+          "check": {
+            "answer": [
+              "lfsr",
+              "linear feedback shift register",
+              "lsfr"
+            ]
+          }
+        },
+        {
+          "key": "leak",
+          "title": "Find the leak",
+          "prompt": "Which kind of memory bug in the scoreboard leaks data?",
+          "check": {
+            "answer": [
+              "out-of-bounds read",
+              "oob read",
+              "out of bounds read",
+              "buffer overrun",
+              "overrun",
+              "out-of-bounds"
+            ]
+          }
+        },
+        {
+          "key": "protect",
+          "title": "Know the second obstacle",
+          "prompt": "Which protection guards the return address of the overflowing buffer?",
+          "check": {
+            "answer": [
+              "stack cookie",
+              "stack canary",
+              "canary",
+              "cookie"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
