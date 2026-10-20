@@ -1,8 +1,11 @@
 {
+  "project_name": "cyberlabs-google-ctf-2022-fixedaslr",
+  "slug": "google-ctf-2022-fixedaslr",
   "title": "Google CTF 2022: FixedASLR",
   "description": "A small game with a scoreboard, loaded by a custom loader that implements its own ASLR. The flag is in a file called flag, both in / and in the working directory.",
-  "question": "Defeat the custom ASLR and stack cookie, get code execution and read the flag.",
-  "category": "PWN",
+  "category": "pwn",
   "difficulty": 3,
-  "evidence_kind": "SECRET"
+  "evidence_kind": "SECRET",
+  "capabilities": [],
+  "question": "Defeat the custom ASLR and stack cookie, get code execution and read the flag."
 }
